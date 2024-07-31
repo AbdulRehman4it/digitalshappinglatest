@@ -6,836 +6,378 @@
     <title>Digital shapping</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <script
       src="//code.tidio.co/yglyzd3ilwsxhwhb6lpmuoxhl7ufxdrh.js"
       async
     ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link href="https://meyerweb.com/eric/tools/css/reset/reset.css" rel="stylesheet">
+<style>
+#phrase-loading-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content */
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+}
+
+#phrase-section-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    width: 100%;
+}
+
+#phrase-section-wrapper h1 {
+    background: linear-gradient(231.18deg, #FF3F23 15.85%, #FFCA54 25.87%, #FF953C 36.96%, #FE652D 48.77%, #FA589D 58.43%, #9D36FC 68.45%, #2FD8D8 79.9%),
+    linear-gradient(0deg, #FFFFFF, #FFFFFF);
+    background-size: 200%;
+    animation: anime 8s linear infinite;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 70px;
+    font-weight: bold;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+.phrase-animation {
+    position: absolute;
+    left: 20px;
+    opacity: 0;
+}
+
+.phrase-animation.show {
+    animation: slideIn 850ms ease-out forwards, fadeIn 850ms ease-out forwards;
+}
+
+.phrase-animation.hide {
+    animation: slideOut 850ms ease-out forwards, fadeOut 850ms ease-out forwards;
+}
+
+@media (min-width: 1024px) {
+    .phrase-animation {
+        left: 40px;
+    }
+}
+
+
+</style>
+   
   </head>
   <body class="bg-image">
-    <!-- ===================NAVBAR START HERE====================== -->
-    <header class="p-[2%]">
-      <nav
-        class="flex lg:flex-row flex-col justify-between w-full py-4 md:py-0 px-4 text-lg text-black"
-      >
-        <div class="flex items-center justify-between">
-          <div>
-            <a href="#hero" class="">
-              <img src="./assets/img/digilogo.png" alt="" />
-            </a>
-          </div>
+    <div id="phrase-loading-wrapper">
+      <section id="phrase-section-wrapper"></section>
+  </div>
 
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            id="menu-button"
-            class="h-6 w-6 cursor-pointer lg:hidden block"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
+
+
+
+<div id="content">
+  <!-- ===================NAVBAR START HERE====================== -->
+  <header class="p-[2%]">
+    <nav
+      class="flex lg:flex-row flex-col justify-between w-full py-4 md:py-0 px-4 text-lg text-black"
+    >
+      <div class="flex items-center justify-between">
+        <div>
+          <a href="#hero" class="">
+            <img src="./assets/img/digilogo.png" alt="" />
+          </a>
         </div>
-        <div class="hidden w-full lg:flex lg:items-center md:w-auto" id="menu">
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          id="menu-button"
+          class="h-6 w-6 cursor-pointer lg:hidden block"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </div>
+      <div class="hidden w-full lg:flex lg:items-center md:w-auto" id="menu">
+        <ul
+          class="pt-4 xl:text-lg lg:text-base text-lg font-medium text-[#030303] lg:flex md:justify-between md:pt-0 text-center justify-center"
+        >
+          <li>
+            <a
+              class="xl:p-4 lg:p-2 py-2 block hover:text-purple-400 poppins hover:underline hover:text-yellow-500 duration-300"
+              style="text-underline-offset: 8px"
+             
+              href="#hero"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a class="xl:p-4 lg:p-2 py-2 block hover:text-purple-400 poppins hover:underline hover:text-yellow-500 duration-300" href="#aboutus"
+            style="text-underline-offset: 8px"
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a class="xl:p-4 lg:p-2 py-2 block hover:text-purple-400 poppins hover:underline hover:text-yellow-500 duration-300" href="#services"
+            style="text-underline-offset: 8px"
+              >Services</a
+            >
+          </li>
+          <li>
+            <a class="xl:p-4 lg:p-2 py-2 block hover:text-purple-400 poppins hover:underline hover:text-yellow-500 duration-300" href="#portfolio"
+            style="text-underline-offset: 8px"
+              >Portfolio</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div
+        class="hidden w-full lg:flex lg:items-center md:w-auto xl:gap-5 lg:gap-3 gap-5"
+        id="menu1"
+      >
+        <div>
           <ul
-            class="pt-4 xl:text-lg lg:text-base text-lg font-medium text-[#030303] lg:flex md:justify-between md:pt-0 text-center justify-center"
+            class="pt-4 text-base flex xl:gap-5 lg:gap-3 gap-5 lg:justify-between md:pt-0 text-center justify-center"
           >
             <li>
-              <a
-                class="xl:p-4 lg:p-2 py-2 block hover:text-purple-400 poppins hover:underline hover:text-yellow-500 duration-300"
-                style="text-underline-offset: 8px"
-               
-                href="#hero"
-                >Home</a
-              >
+              <a class="block"  href="https://www.linkedin.com/company/digital-shaping/"  class="h-[30px] w-[30px]">
+                <img
+                  src="./assets/img/linkedin.png"
+                  alt=""
+                  class="h-[30px] w-[30px]"
+                />
+              </a>
             </li>
             <li>
-              <a class="xl:p-4 lg:p-2 py-2 block hover:text-purple-400 poppins hover:underline hover:text-yellow-500 duration-300" href="#aboutus"
-              style="text-underline-offset: 8px"
-                >About Us</a
-              >
+              <a class="block" href="https://www.instagram.com/digitalshaping/" class="h-[30px] w-[30px]">
+                <img
+                  src="./assets/img/insta.png"
+                  alt=""
+                  class="h-[30px] w-[30px]"
+                />
+              </a>
             </li>
             <li>
-              <a class="xl:p-4 lg:p-2 py-2 block hover:text-purple-400 poppins hover:underline hover:text-yellow-500 duration-300" href="#services"
-              style="text-underline-offset: 8px"
-                >Services</a
-              >
+              <a class="block" href="https://web.facebook.com/people/Digital-Shaping/61555193805019/?mibextid=LQQJ4d" class="h-[30px] w-[30px]">
+                <img
+                  src="./assets/img/facebook.png"
+                  alt=""
+                  class="h-[30px] w-[30px]"
+                />
+              </a>
             </li>
             <li>
-              <a class="xl:p-4 lg:p-2 py-2 block hover:text-purple-400 poppins hover:underline hover:text-yellow-500 duration-300" href="#portfolio"
-              style="text-underline-offset: 8px"
-                >Portfolio</a
-              >
+              <a class="block" href="https://www.tiktok.com/@digitalshaping?_t=8iwgsz3Fhyx&_r=1" class="h-[30px] w-[30px]">
+                <img
+                  src="./assets/img/tiktok.png"
+                  alt=""
+                  class="h-[30px] w-[30px]"
+                />
+              </a>
             </li>
           </ul>
         </div>
-
         <div
-          class="hidden w-full lg:flex lg:items-center md:w-auto xl:gap-5 lg:gap-3 gap-5"
-          id="menu1"
+          class="flex lg:items-center md:flex-row flex-col xl:gap-5 lg:gap-2 gap-5 lg:mt-0 md:mt-5 mt-5 md:justify-center poppins"
         >
-          <div>
-            <ul
-              class="pt-4 text-base flex xl:gap-5 lg:gap-3 gap-5 lg:justify-between md:pt-0 text-center justify-center"
-            >
-              <li>
-                <a class="block"  href="https://www.linkedin.com/company/digital-shaping/"  class="h-[30px] w-[30px]">
-                  <img
-                    src="./assets/img/linkedin.png"
-                    alt=""
-                    class="h-[30px] w-[30px]"
-                  />
-                </a>
-              </li>
-              <li>
-                <a class="block" href="https://www.instagram.com/digitalshaping/" class="h-[30px] w-[30px]">
-                  <img
-                    src="./assets/img/insta.png"
-                    alt=""
-                    class="h-[30px] w-[30px]"
-                  />
-                </a>
-              </li>
-              <li>
-                <a class="block" href="https://web.facebook.com/people/Digital-Shaping/61555193805019/?mibextid=LQQJ4d" class="h-[30px] w-[30px]">
-                  <img
-                    src="./assets/img/facebook.png"
-                    alt=""
-                    class="h-[30px] w-[30px]"
-                  />
-                </a>
-              </li>
-              <li>
-                <a class="block" href="https://www.tiktok.com/@digitalshaping?_t=8iwgsz3Fhyx&_r=1" class="h-[30px] w-[30px]">
-                  <img
-                    src="./assets/img/tiktok.png"
-                    alt=""
-                    class="h-[30px] w-[30px]"
-                  />
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div
-            class="flex lg:items-center md:flex-row flex-col xl:gap-5 lg:gap-2 gap-5 lg:mt-0 md:mt-5 mt-5 md:justify-center poppins"
+          <a  href="https://calendly.com/digital-shaping/strategy-session"
+            class="border border-[#030303] text-[#030303] font-semibold xl:text-xl lg:text-[14px] md:text-xl text-base py-3 xl:px-6 lg:px-2 px-6 rounded-[10px] hover:bg-black hover:text-white md:text-start text-center"
           >
-            <a  href="https://calendly.com/digital-shaping/strategy-session"
-              class="border border-[#030303] text-[#030303] font-semibold xl:text-xl lg:text-[14px] md:text-xl text-base py-3 xl:px-6 lg:px-2 px-6 rounded-[10px] hover:bg-black hover:text-white md:text-start text-center"
-            >
-              Book Free Consultation
-            </a>
-            <a  href="#contact"
-              class="border border-[#030303] text-[#030303] font-semibold xl:text-xl lg:text-[14px] md:text-xl text-base py-3 xl:px-6 lg:px-2 px-6 rounded-[10px] hover:bg-black hover:text-white poppins md:text-start text-center"
-            >
-              Contact us
-            </a>
-          </div>
+            Book Free Consultation
+          </a>
+          <a  href="#contact"
+            class="border border-[#030303] text-[#030303] font-semibold xl:text-xl lg:text-[14px] md:text-xl text-base py-3 xl:px-6 lg:px-2 px-6 rounded-[10px] hover:bg-black hover:text-white poppins md:text-start text-center"
+          >
+            Contact us
+          </a>
         </div>
-      </nav>
-    </header>
-    <!-- ===================NAVBAR END HERE====================== -->
-
-
-
-    <!-- =========================HERO SECTION START HERE==================== -->
-    <section class="mt-20 p-[5%] relative" id="#hero">
-      <div class="absolute -z-10  flex justify-end w-[90%] hidden md:flex">
-        <img src="./assets/img/video.gif" class="opacity-45" alt="" />
       </div>
-      <div class="">
-        <h1 class="lg:text-[100px] xl:text-[155px] md:text-[89px]  text-4xl text-center gbold hero-glow xl:leading-[200px]  md:leading-[111px] leading-[90px]">
-          Digital Shaping
-        </h1>
-      </div>
-      <div
-      class="block md:hidden justify-center content-center w-full">
+    </nav>
+  </header>
+  <!-- ===================NAVBAR END HERE====================== -->
+
+
+
+  <!-- =========================HERO SECTION START HERE==================== -->
+  <section class="mt-20 p-[5%] relative" id="#hero">
+    <div class="absolute -z-10  flex justify-end w-[90%] hidden md:flex">
       <img src="./assets/img/video.gif" class="opacity-45" alt="" />
     </div>
-
-      <div class="justify-center text-center poppins" data-aos="fade-up">
-        <h2 class="text-black md:text-3xl uppercase font-semibold mb-5">
-          Where Imagination Meets Implementation
-        </h2>
-        <p class="text-base md:text-xl">
-          With a blend of Al and human expertise in our data-driven reports and
-          meticulous <br class="lg:block hidden"/>
-          trend-tracking, we commit and deliver.
-        </p>
-      </div>
-      <div class="flex justify-between items-center pt-14">
-        <h2
-          class="font-thin gbook 2xl:text-7xl md:text-5xl text-xl inline-block text-black"
-          data-aos="fade-up-left"
-        >
-          Marketing<br />
-          <span class="hero-glow">Agency</span>
-        </h2>
-        <!-- <div class="">
-          <img src="./assets/img/hero-2.png" alt="logo-img" />
-        </div> -->
-        <div class="fancy">
-          <i style="--clr: #00ff0a"></i>
-          <i style="--clr: #ff0057"></i>
-          <i style="--clr: #fffd44"></i>
-          <img
-            class="rotate"
-            src="./assets/img/hero-2.png"
-            alt="logo-img"
-          />
-        </div>
-        <h2
-          class="font-thin gbook 2xl:text-7xl md:text-5xl text-xl inline-block text-black"
-          data-aos="fade-up-right"
-        >
-          Result<br /><span class="hero-glow">Oriented</span>
-        </h2>
-      </div>
-    </section>
-    <!-- =========================HERO SECTION END HERE==================== -->
-
-
-
-    <!-- =========================ABOUT US SECTION START HERE==================== -->
-    <section class="mt-20 p-[5%]" id="aboutus">
-        <div
-          class="flex lg:flex-row flex-col items-center xl:gap-0 gap-9"
-          data-aos="fade-up"
-        >
-        
-          <div
-            class="basis-1/2 bottom-0 flex flex-col justify-center md:justify-start items-center md:items-start"
-          >
-            <div class="flex">
-              <h2
-                class="gbook hero-glow capitalize 2xl:text-[127px] xl:text-[100px] md:text-[52px] text-5xl pl-9">
-               &#8618; A Little about us
-              </h2>
-            </div>
-            <h6
-              class="2xl:text-xl poppins md:leading-[45px] leading-8 font-normal text-center md:text-left md:pr-10 text-black pt-5"
-            >
-             
-              Ever wondered about a company you've never heard of and thought,
-              'Can I trust these folks?' We're not just talkers; we're doers –
-              consider us your personal marketing squad. Your wins are our
-              wins. Share where you're headed, and we'll craft the journey
-              from building your brand to launching it. No stress, no added
-              problems – just a team ready to tackle your worries. Ready for a
-              change? Book a free consultation call!
-            </h6>
-           
-            <a
-              href="https://calendly.com/digital-shaping/strategy-session"
-              target="_blank"
-              class="md:mt-8 mt-5 border glow border-[#030303] hover:bg-[#030303] hover:text-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-xl px-3  py-2.5 text-center font-medium poppins text-[#030303] lg:text-lg text-sm flex justify-center items-center">
-             
-                Book Free Consultation
-             
-            </a>
-          </div>
-          <div class="basis-1/2 mt-10 md:mt-0">
-            <video width="1000" height="240" loop controls>
-              <source
-                src="./assets/img/DigitalShaping.mp4"
-                type="video/mp4"
-              />
-            </video>
-          </div>
-        </div>
-    </section>
-    <!-- =========================ABOUT US SECTION END HERE==================== -->
-
-
-    <!-- =========================WE ARE EXPERT AT SECTION START HERE==================== -->
-    <section class="mt-20 p-[5%]" id="services">
-   
-        <div
-          class="flex justify-between md:flex-row flex-col-reverse items-center"
-          data-aos="fade-up"
-        >
-          <div class="flex">
-          
-            <h2
-              class="gbook hero-glow capitalize font-light 2xl:text-[127px] xl:text-[100px] text-[52px] md:pl-9 pl-0"
-            >
-             &#8618; we are <br />expert at<br />
-            </h2>
-          </div>
-
-
-
-
-          <div>
-              <!--ring div starts here-->
-              <div class="fancy">
-                <i style="--clr: #00ff0a"></i>
-                <i style="--clr: #ff0057"></i>
-                <i style="--clr: #fffd44"></i>
-                <img
-                  class="rotate"
-                  src="./assets/img/hero-2.png"
-                  alt="logo-img"
-                />
-              </div>
-              <!--ring div ends here-->
-            </div>
-          <!-- <div
-            class=""
-          >
-            <div class="">
-              <img
-                class=""
-                src="./assets/img/hero-2.png"
-                alt="logo-img"
-              />
-            </div>
-   
-          </div> -->
-        </div>
-
-        <!-- Swiper Slider Services Card Start  -->
-
-        <div class="swiper mySwiper1 h-[750px] md:h-auto md:p-[50px] p-1">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="border-color-2 shadow-main">
-                <div
-                  class="md:px-6 px-3 py-12 flex flex-col  h-[600px] md:h-auto   gradient-border">
-                  <div class="flex justify-between items-center">
-                    <h6
-                      class="text-[#030303] poppins md:text-4xl text-2xl font-bold capitalize text-left">
-                      Website <br class="md:block hidden"/>
-                      Development
-                    </h6>
-                  </div>
-<br/>
-                  <div>
-                    <p
-                      class="poppins text-black md:text-lg text-base font-normal leading-normal md:leading-10"
-                    >
-                      Every business needs the best website; without it,
-                      you're unknowingly losing valuable clients. Our Website
-                      Development services specialize in crafting
-                      personalized, seamless, and user-friendly websites,
-                      including dynamic e-commerce platforms. Your brand
-                      deserves a unique digital presence that captivates
-                      audiences, enhancing user experiences and leaving a
-                      lasting impression online. From the initial concept to the continuous evolution of website.
-                    </p>
-                  </div>
-                
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="border-color-2 shadow-main">
-                <div
-                  class="md:px-6 px-3 py-12 flex flex-col  h-[600px] md:h-auto   gradient-border">
-                  <div class="flex justify-between items-center">
-                    <h6
-                      class="text-[#030303] poppins md:text-4xl text-2xl font-bold capitalize text-left">
-                      SEO <br class="md:block hidden"/>
-                      Services
-                    </h6>
-                  </div>
-<br/>
-                  <div>
-                    <p
-                      class="poppins text-black md:text-lg text-base font-normal leading-normal md:leading-10"
-                    >
-                    Initiate organic client growth without ad expenses
-                    through our SEO Services. With the synergy of AI and
-                    human expertise, we meticulously enhance your Google
-                    presence via local, on-page, off-page, and technical
-                    SEO. This holistic and results-driven strategy ensures
-                    sustained online visibility, propelling continual
-                    success, and fostering substantial growth for your brand
-                    in the digital landscape. Building a strong and diverse backlink profile is essential for a website.
-                    </p>
-                  </div>
-                
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="border-color-2 shadow-main">
-                <div
-                  class="md:px-6 px-3 py-12 flex flex-col h-[600px] md:h-auto   gradient-border">
-                  <div class="flex justify-between items-center">
-                    <h6
-                      class="text-[#030303] poppins md:text-4xl text-2xl font-bold capitalize text-left">
-                      Social Media <br class="md:block hidden"/>
-                      Management
-                    </h6>
-                  </div>
-<br/>
-                  <div>
-                    <p
-                      class="poppins text-black md:text-lg text-base font-normal leading-normal md:leading-10"
-                    >
-                    It's not just about posting; it's about sharing the
-                    right content that attracts clients and builds brand
-                    awareness. Stay ahead of trends with our content
-                    curation expertise in Social Media Management. We focus
-                    on delivering the right content to your platforms,
-                    fostering brand awareness, and attracting potential
-                    clients. Let our dynamic social media strategies,
-                    tailor-made for engagement and impact, drive your
-                    success, creating a vibrant and authentic online
-                    presence.
-                    </p>
-                  </div>
-                
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="border-color-2 shadow-main">
-                <div
-                  class="md:px-6 px-3 py-12 flex flex-col h-[600px] md:h-auto   gradient-border">
-                  <div class="flex justify-between items-center">
-                    <h6
-                      class="text-[#030303] poppins md:text-4xl text-2xl font-bold capitalize text-left">
-                      Paid Ads
-                     
-                    </h6>
-                  </div>
-<br/>
-                  <div>
-                    <p
-                      class="poppins text-black md:text-lg text-base font-normal leading-normal md:leading-10"
-                    >
-                    Want early success? Then Paid Ads is for you. Our
-                    expertise in Paid Advertising spans Meta, Instagram,
-                    LinkedIn, and TikTok, ensuring optimal visibility,
-                    engagement, and conversions. Elevate your online
-                    presence with targeted campaigns that deliver tangible
-                    results, driving growth and success on diverse digital
-                    platforms. Maximize your reach and impact with our
-                    strategic and results-driven paid advertising solutions. We continuously refine campaigns, ensuring cost-effectiveness to provide result.
-                    </p>
-                  </div>
-                
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="border-color-2 shadow-main">
-                <div
-                  class="md:px-6 px-3 py-12 flex flex-col h-[600px] md:h-auto   gradient-border">
-                  <div class="flex justify-between items-center">
-                    <h6
-                      class="text-[#030303] poppins md:text-4xl text-2xl font-bold capitalize text-left">
-                      Tiktok Power <br class="md:block hidden"/>
-                      Pack
-                    </h6>
-                  </div>
-<br/>
-                  <div>
-                    <p
-                      class="poppins text-black md:text-lg text-base font-normal leading-normal md:leading-10"
-                    >
-                    Did you know TikTok is a goldmine for businesses? If
-                    you're not there, creating the right content, you could
-                    be missing out on thousands of dollars. Our team's got
-                    you covered – we specialize in that. We've got talented
-                    creators and big influencers to back your brand and make
-                    it shine. Let's ride the TikTok wave and boost your
-                    success. Elevate your brand with TikTok Marketing, where creativity meets visibility, driving authentic connections and un-imaginable results!
-                    </p>
-                  </div>
-                
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="border-color-2 shadow-main">
-                <div
-                  class="md:px-6 px-3 py-12 flex flex-col  h-[600px] md:h-auto   gradient-border">
-                  <div class="flex justify-between items-center">
-                    <h6
-                      class="text-[#030303] poppins md:text-4xl text-2xl font-bold capitalize text-left">
-                      UI/UX-Graphic <br class="md:block hidden"/>
-                      Branding
-                    </h6>
-                  </div>
-<br/>
-                  <div>
-                    <p
-                      class="poppins text-black md:text-lg text-base font-normal leading-normal md:leading-10"
-                    >
-                    Ever wondered why your brand isn't making the impact you
-                    envisioned? If your visuals lack that unforgettable
-                    touch, we've got you covered. In our Branding, Graphic
-                    Designing, UI/UX services, we weave creative branding,
-                    stunning graphics, and intuitive design to craft visuals
-                    that not only set but define your brand in the market.
-                    Our designs seamlessly merge aesthetics with
-                    functionality, ensuring a compelling and unforgettable
-                    brand identity and unique feel to your brand or product.
-                    </p>
-                  </div>
-                
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="border-color-2 shadow-main">
-                <div
-                  class="md:px-6 px-3 py-12 flex flex-col  h-[600px] md:h-auto   gradient-border">
-                  <div class="flex justify-between items-center">
-                    <h6
-                      class="text-[#030303] poppins md:text-4xl text-2xl font-bold capitalize text-left">
-                      Influencer <br class="md:block hidden"/>
-                      Management
-                    </h6>
-                  </div>
-<br/>
-                  <div>
-                    <p
-                      class="poppins text-black md:text-lg text-base font-normal leading-normal md:leading-10"
-                    >
-                    Specializing in connecting brands with influencers, we
-                    amplify your reach and boost awareness. Our team
-                    identifies influencers aligned with your brand,
-                    facilitating impactful collaborations across diverse
-                    platforms. Create genuine connections with your target
-                    audience through strategic influencer partnerships that
-                    resonate, harnessing the power of authentic voices to
-                    enhance brand credibility and visibility. We authentically connect with your audience!
-                    </p>
-                  </div>
-                
-                </div>
-              </div>
-            </div>
-          </div>
-        
-          <div class="swiper-pagination"></div>
-        </div>
-
-  </section>
-    <!-- =========================WE ARE EXPERT AT SECTION END HERE==================== -->
-
-
-
-    <!-- =========================MEET OUR TEAM SECTION START HERE==================== -->
-    <section class="mt-20 p-[5%]" >
-        <div class=" " data-aos="fade-up">
-          <div class="flex">
-            <h2
-              class="gbook hero-glow capitalize 2xl:text-[127px] xl:text-[100px] text-[52px] pl-9"
-            >
-             &#8618; Meet the team
-            </h2>
-          </div>
-        </div>
-        <ul role="list">
-          <li class="member" data-aos="fade-up">
-            <a class="member-link">
-              <h2 class="member-name subheading">Alex</h2>
-              <p class="member-role subheading">CEO & Co-Founder</p>
-              <img class="member-photo" src="./assets/img/Alex.png" alt="" />
-            </a>
-          </li>
-
-          <li class="member" data-aos="fade-up">
-            <a class="member-link">
-              <h2 class="member-name subheading">Rosse</h2>
-              <p class="member-role subheading">COO & Co-Founder</p>
-              <img class="member-photo" src="./assets/img/Rosse.png" alt="" />
-            </a>
-          </li>
-
-          <li class="member" data-aos="fade-up">
-            <a class="member-link">
-              <h2 class="member-name subheading">Emmet</h2>
-              <p class="member-role subheading">Revenue Growth Manager</p>
-              <img class="member-photo" src="./assets/img/Emmet.png" alt="" />
-            </a>
-          </li>
-
-          <li class="member" data-aos="fade-up">
-            <a class="member-link">
-              <h2 class="member-name subheading">Elias</h2>
-              <p class="member-role subheading">Head of Creatives</p>
-              <img class="member-photo" src="./assets/img/Elias.png" alt="" />
-            </a>
-          </li>
-        </ul>
-</section>
-    <!-- =========================MEET OUR TEAM SECTION END HERE==================== -->
-
-
-
-     <!-- =========================OUR RECENT PROJECT SECTION START HERE==================== -->
-     <section class="mt-20 p-[5%]" id="portfolio">
-      <div class="md:flex-row flex-col items-center flex gap-20">
-        <div class="basis-full md:basis-1/4 mt-[60px]">
-          
-          <h2
-            data-aos="fade-up"
-            class="gbook hero-glow capitalize font-light 2xl:text-[127px] xl:text-[100px] md:text-[52px] text-[28px]"
-          >
-            &#8618; Our Recent projects
-          </h2>
-        </div>
-        <div class="basis-full md:basis-3/4 w-full" data-aos="fade-up">
-          <div class="md:flex-row flex-col flex gap-6">
-            <div
-              class="basis-full md:basis-1/2 rounded-[80px] border border-1 md:p-[5%] p-[10%] bg-color-card1"
-            >
-              <a href="https://www.unfauxgettable.co.uk/" target="_blank">
-               
-                <div class="justify-center flex">
-                  <img src="./assets/img/project1.svg" alt="" class="" />
-                </div>
-                <div class="justify-end flex">
-                  <img src="./assets/img/arrow-up.png" alt="" class="" />
-                </div>
-              </a>
-            </div>
-            <div
-              class="basis-full md:basis-1/2 rounded-[80px] border border-1 md:p-[5%] p-[10%] bg-color-card2"
-            >
-              <a href="https://davenportm2m.com/" target="_blank">
-               
-                <div class="justify-center flex">
-                  <img src="./assets/img/project2.svg" alt="" class="" />
-                </div>
-                <div class="justify-end flex">
-                  <img src="./assets/img/arrow-up.png" alt="" class="" />
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="mt-5">
-            <div
-              class="rounded-[80px] border border-1 md:p-[5%] p-[10%] bg-color-card3"
-            >
-              <a href="https://mowellens.com/" target="_blank">
-              
-                <div class="justify-center flex my-5">
-                  <img src="./assets/img/project3.webp" alt="" class="" />
-                </div>
-                <div class="justify-end flex">
-                  <img src="./assets/img/arrow-up.png" alt="" class="" />
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-</section>
-  <!-- =========================OUR RECENT PROJECT SECTION END HERE==================== -->
-
-
-
-  <!-- =========================CUSTOMER REVIEW SECTION START HERE==================== -->
-  <section class="mt-20 p-[5%]">
-      <div
-      class="flex justify-between md:flex-row flex-col-reverse items-center"
-      data-aos="fade-up">
-      <div class="flex">
-      
-        <h2
-          class="gbook hero-glow capitalize font-light 2xl:text-[127px] xl:text-[100px] text-[32px] pl-9"
-        >
-          &#8618; Customer <br />reviews about <br />our work<br />
-        </h2>
-      </div>
-      <div>
-
-        <div class="fancy flex justify-center items-center md:items-start">
-          <i style="--clr: #00ff0a"></i>
-          <i style="--clr: #ff0057"></i>
-          <i style="--clr: #fffd44"></i>
-          <img
-            class="rotate"
-            src="./assets/img/hero-2.png"
-            alt="logo-img"
-          />
-        </div>
-    
-      </div>
+    <div class="">
+      <h1 class="lg:text-[100px] xl:text-[155px] md:text-[89px]  text-4xl text-center gbold hero-glow xl:leading-[200px]  md:leading-[111px] leading-[90px]">
+        Digital Shaping
+      </h1>
     </div>
-  <!-- Swiper -->
-  <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide p-[5%] ">
-       <div class="shadow-main rounded-[80px] p-[5%]">
-        <div class=" justify-center text-center items-center">
-          
-      <div class="flex justify-center items-center" >
-        <img
-        data-aos="fade-up"
-        src="./assets/img/axah.jpg"
-        alt=""
-        class="w-32 rounded-full"
-      />
-      </div>
-             
-          
-            <h3
-              data-aos="fade-up"
-              class="text-black poppins text-2xl font-bold capitalize"
-            >
-              Axah
-            </h3>
-            <h6
-              data-aos="fade-up"
-              class=" text-sm font-normal capitalize text-black"
-            >
-              CEO
-            </h6>
-            <h6
-              data-aos="fade-up"
-              class="text-[#030303] poppins font-normal text-sm md:text-xl md:leading-10 leading-normal pt-5 md:px-10 px-5"
-            >
-              I've been teaming up with Alex since he kicked off his
-              freelance journey back in 2021. I can't help but
-              appreciate the fantastic work he's done in boosting
-              our website's visibility and keeping our SEO results
-              top-notch on the first page. What really makes our
-              collaboration shine is Alex's reliability – he's
-              always there with quick responses and a knack for
-              setting clear expectations. I genuinely recommend Alex
-              and his company, Digital Shaping, to anyone on the
-              lookout for a great collaboration.
-            </h6>
-          
-        </div>
-      </div>
-      </div>
-
-
-
-      <div class="swiper-slide p-[5%] ">
-        <div class="shadow-main rounded-[80px] p-[5%]">
-         <div class=" justify-center text-center items-center">
-           
-       <div class="flex justify-center items-center" >
-         <img
-         data-aos="fade-up"
-         src="./assets/img/dan.jpg"
-         alt=""
-         class="w-32 rounded-full"
-       />
-       </div>
-              
-           
-             <h3
-               data-aos="fade-up"
-               class="text-black poppins text-2xl font-bold capitalize"
-             >
-               dan
-             </h3>
-             <h6
-               data-aos="fade-up"
-               class=" text-sm font-normal capitalize text-black"
-             >
-               CEO
-             </h6>
-             <h6
-               data-aos="fade-up"
-               class="text-[#030303] poppins font-normal text-sm md:text-xl md:leading-10 leading-normal pt-5 md:px-10 px-5"
-             >
-             Digital Shaping has done an excellent job with our
-             ecommerce store and the annual maintenance service.
-             They are just a message away whenever we need them,
-             and the team conducts regular checkups. From branding
-             to launching, they took care of everything for us.
-             Overall, we are highly satisfied with the service.
-             </h6>
-           
-         </div>
-       </div>
-       </div>
-
-
-       <div class="swiper-slide p-[5%] ">
-        <div class="shadow-main rounded-[80px] p-[5%]">
-         <div class=" justify-center text-center items-center">
-           
-       <div class="flex justify-center items-center" >
-         <img
-         data-aos="fade-up"
-         src="./assets/img/gabriela.jpg"
-         alt=""
-         class="w-32 rounded-full"
-       />
-       </div>
-              
-           
-             <h3
-               data-aos="fade-up"
-               class="text-black poppins text-2xl font-bold capitalize"
-             >
-             gabriela
-             </h3>
-             <h6
-               data-aos="fade-up"
-               class=" text-sm font-normal capitalize text-black"
-             >
-               CEO
-             </h6>
-             <h6
-               data-aos="fade-up"
-               class="text-[#030303] poppins font-normal text-sm md:text-xl md:leading-10 leading-normal pt-5 md:px-10 px-5"
-             >
-             I was about to dive into starting my business and got
-            all tangled up thinking about how to handle the online
-            stuff. So, I hit up the Digital Shaping crew for a
-            free chat. Gotta say, their advice was spot-on and
-            cleared up my head. Ready to roll with them now
-            they're taking care of everything from the ground up,
-            so I can just chill and focus on running the show
-            instead of stressing about marketing.
-             </h6>
-           
-         </div>
-       </div>
-       </div>
-    </div>
-    <div class="swiper-button-next bg-gray-200 rounded-full"></div>
-    <div class="swiper-button-prev bg-gray-200 rounded-full"></div>
-    <div class="swiper-pagination"></div>
+    <div
+    class="block md:hidden justify-center content-center w-full">
+    <img src="./assets/img/video.gif" class="opacity-45" alt="" />
   </div>
 
-</section>
-  <!-- =========================CUSTOMER REVIEW SECTION END HERE==================== -->
-  <!-- =========================CONTACT US  SECTION START HERE==================== -->
-   <section class="mt-20 p-[5%]" id="contact">
-   
-      <div class="md:p-[5%] p-[7%] border-color shadow-main">
-        <div class="flex justify-between md:flex-row flex-col-reverse items-center">
-          <h2
-            class="gbook hero-glow capitalize font-light md:leading-[81px] leading-normal md:text-7xl text-4xl md:pt-0 pt-5 text-center md:text-left"
+    <div class="justify-center text-center poppins" data-aos="fade-up">
+      <h2 class="text-black md:text-3xl uppercase font-semibold mb-5">
+        Where Imagination Meets Implementation
+      </h2>
+      <p class="text-base md:text-xl">
+        With a blend of Al and human expertise in our data-driven reports and
+        meticulous <br class="lg:block hidden"/>
+        trend-tracking, we commit and deliver.
+      </p>
+    </div>
+    <div class="flex justify-between items-center pt-14">
+      <h2
+        class="font-thin gbook 2xl:text-7xl md:text-5xl text-xl inline-block text-black"
+        data-aos="fade-up-left"
+      >
+        Marketing<br />
+        <span class="hero-glow">Agency</span>
+      </h2>
+      <!-- <div class="">
+        <img src="./assets/img/hero-2.png" alt="logo-img" />
+      </div> -->
+      <div class="fancy">
+        <i style="--clr: #00ff0a"></i>
+        <i style="--clr: #ff0057"></i>
+        <i style="--clr: #fffd44"></i>
+        <img
+          class="rotate"
+          src="./assets/img/hero-2.png"
+          alt="logo-img"
+        />
+      </div>
+      <h2
+        class="font-thin gbook 2xl:text-7xl md:text-5xl text-xl inline-block text-black"
+        data-aos="fade-up-right"
+      >
+        Result<br /><span class="hero-glow">Oriented</span>
+      </h2>
+    </div>
+  </section>
+  <!-- =========================HERO SECTION END HERE==================== -->
+
+
+
+  <!-- =========================ABOUT US SECTION START HERE==================== -->
+  <section class="mt-20 p-[5%]" id="aboutus">
+      <div
+        class="flex lg:flex-row flex-col items-center xl:gap-0 gap-9"
+        data-aos="fade-up"
+      >
+      
+        <div
+          class="basis-1/2 bottom-0 flex flex-col justify-center md:justify-start items-center md:items-start"
+        >
+          <div class="flex">
+            <h2
+              class="gbook hero-glow capitalize 2xl:text-[127px] xl:text-[100px] md:text-[52px] text-5xl pl-9">
+             &#8618; A Little about us
+            </h2>
+          </div>
+          <h6
+            class="2xl:text-xl poppins md:leading-[45px] leading-8 font-normal text-center md:text-left md:pr-10 text-black pt-5"
           >
-            Hello
-            <br />
-            Digital Shaping
+           
+            Ever wondered about a company you've never heard of and thought,
+            'Can I trust these folks?' We're not just talkers; we're doers –
+            consider us your personal marketing squad. Your wins are our
+            wins. Share where you're headed, and we'll craft the journey
+            from building your brand to launching it. No stress, no added
+            problems – just a team ready to tackle your worries. Ready for a
+            change? Book a free consultation call!
+          </h6>
+         
+          <a
+            href="https://calendly.com/digital-shaping/strategy-session"
+            target="_blank"
+            class="md:mt-8 mt-5 border glow border-[#030303] hover:bg-[#030303] hover:text-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-xl px-3  py-2.5 text-center font-medium poppins text-[#030303] lg:text-lg text-sm flex justify-center items-center">
+           
+              Book Free Consultation
+           
+          </a>
+        </div>
+        <div class="basis-1/2 mt-10 md:mt-0">
+          <video width="1000" height="240" loop controls>
+            <source
+              src="./assets/img/DigitalShaping.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+      </div>
+  </section>
+  <!-- =========================ABOUT US SECTION END HERE==================== -->
+
+
+  <!-- =========================WE ARE EXPERT AT SECTION START HERE==================== -->
+  <section class="mt-20 p-[5%]" id="services">
+ 
+      <div
+        class="flex justify-between md:flex-row flex-col-reverse items-center"
+        data-aos="fade-up"
+      >
+        <div class="flex">
+        
+          <h2
+            class="gbook hero-glow capitalize font-light 2xl:text-[127px] xl:text-[100px] text-[52px] md:pl-9 pl-0"
+          >
+           &#8618; we are <br />expert at<br />
           </h2>
+        </div>
 
 
 
 
-          
-
-          <div
-            class="justify-center  rotate">
-          
+        <div>
+            <!--ring div starts here-->
             <div class="fancy">
               <i style="--clr: #00ff0a"></i>
               <i style="--clr: #ff0057"></i>
@@ -845,146 +387,715 @@
                 src="./assets/img/hero-2.png"
                 alt="logo-img"
               />
-            </div> 
+            </div>
+            <!--ring div ends here-->
+          </div>
+        <!-- <div
+          class=""
+        >
+          <div class="">
+            <img
+              class=""
+              src="./assets/img/hero-2.png"
+              alt="logo-img"
+            />
+          </div>
+ 
+        </div> -->
+      </div>
+
+      <!-- Swiper Slider Services Card Start  -->
+
+      <div class="swiper mySwiper1 h-[750px] md:h-auto md:p-[50px] p-1">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="border-color-2 shadow-main">
+              <div
+                class="md:px-6 px-3 py-12 flex flex-col  h-[600px] md:h-auto   gradient-border">
+                <div class="flex justify-between items-center">
+                  <h6
+                    class="text-[#030303] poppins md:text-4xl text-2xl font-bold capitalize text-left">
+                    Website <br class="md:block hidden"/>
+                    Development
+                  </h6>
+                </div>
+<br/>
+                <div>
+                  <p
+                    class="poppins text-black md:text-lg text-base font-normal leading-normal md:leading-10"
+                  >
+                    Every business needs the best website; without it,
+                    you're unknowingly losing valuable clients. Our Website
+                    Development services specialize in crafting
+                    personalized, seamless, and user-friendly websites,
+                    including dynamic e-commerce platforms. Your brand
+                    deserves a unique digital presence that captivates
+                    audiences, enhancing user experiences and leaving a
+                    lasting impression online. From the initial concept to the continuous evolution of website.
+                  </p>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="border-color-2 shadow-main">
+              <div
+                class="md:px-6 px-3 py-12 flex flex-col  h-[600px] md:h-auto   gradient-border">
+                <div class="flex justify-between items-center">
+                  <h6
+                    class="text-[#030303] poppins md:text-4xl text-2xl font-bold capitalize text-left">
+                    SEO <br class="md:block hidden"/>
+                    Services
+                  </h6>
+                </div>
+<br/>
+                <div>
+                  <p
+                    class="poppins text-black md:text-lg text-base font-normal leading-normal md:leading-10"
+                  >
+                  Initiate organic client growth without ad expenses
+                  through our SEO Services. With the synergy of AI and
+                  human expertise, we meticulously enhance your Google
+                  presence via local, on-page, off-page, and technical
+                  SEO. This holistic and results-driven strategy ensures
+                  sustained online visibility, propelling continual
+                  success, and fostering substantial growth for your brand
+                  in the digital landscape. Building a strong and diverse backlink profile is essential for a website.
+                  </p>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="border-color-2 shadow-main">
+              <div
+                class="md:px-6 px-3 py-12 flex flex-col h-[600px] md:h-auto   gradient-border">
+                <div class="flex justify-between items-center">
+                  <h6
+                    class="text-[#030303] poppins md:text-4xl text-2xl font-bold capitalize text-left">
+                    Social Media <br class="md:block hidden"/>
+                    Management
+                  </h6>
+                </div>
+<br/>
+                <div>
+                  <p
+                    class="poppins text-black md:text-lg text-base font-normal leading-normal md:leading-10"
+                  >
+                  It's not just about posting; it's about sharing the
+                  right content that attracts clients and builds brand
+                  awareness. Stay ahead of trends with our content
+                  curation expertise in Social Media Management. We focus
+                  on delivering the right content to your platforms,
+                  fostering brand awareness, and attracting potential
+                  clients. Let our dynamic social media strategies,
+                  tailor-made for engagement and impact, drive your
+                  success, creating a vibrant and authentic online
+                  presence.
+                  </p>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="border-color-2 shadow-main">
+              <div
+                class="md:px-6 px-3 py-12 flex flex-col h-[600px] md:h-auto   gradient-border">
+                <div class="flex justify-between items-center">
+                  <h6
+                    class="text-[#030303] poppins md:text-4xl text-2xl font-bold capitalize text-left">
+                    Paid Ads
+                   
+                  </h6>
+                </div>
+<br/>
+                <div>
+                  <p
+                    class="poppins text-black md:text-lg text-base font-normal leading-normal md:leading-10"
+                  >
+                  Want early success? Then Paid Ads is for you. Our
+                  expertise in Paid Advertising spans Meta, Instagram,
+                  LinkedIn, and TikTok, ensuring optimal visibility,
+                  engagement, and conversions. Elevate your online
+                  presence with targeted campaigns that deliver tangible
+                  results, driving growth and success on diverse digital
+                  platforms. Maximize your reach and impact with our
+                  strategic and results-driven paid advertising solutions. We continuously refine campaigns, ensuring cost-effectiveness to provide result.
+                  </p>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="border-color-2 shadow-main">
+              <div
+                class="md:px-6 px-3 py-12 flex flex-col h-[600px] md:h-auto   gradient-border">
+                <div class="flex justify-between items-center">
+                  <h6
+                    class="text-[#030303] poppins md:text-4xl text-2xl font-bold capitalize text-left">
+                    Tiktok Power <br class="md:block hidden"/>
+                    Pack
+                  </h6>
+                </div>
+<br/>
+                <div>
+                  <p
+                    class="poppins text-black md:text-lg text-base font-normal leading-normal md:leading-10"
+                  >
+                  Did you know TikTok is a goldmine for businesses? If
+                  you're not there, creating the right content, you could
+                  be missing out on thousands of dollars. Our team's got
+                  you covered – we specialize in that. We've got talented
+                  creators and big influencers to back your brand and make
+                  it shine. Let's ride the TikTok wave and boost your
+                  success. Elevate your brand with TikTok Marketing, where creativity meets visibility, driving authentic connections and un-imaginable results!
+                  </p>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="border-color-2 shadow-main">
+              <div
+                class="md:px-6 px-3 py-12 flex flex-col  h-[600px] md:h-auto   gradient-border">
+                <div class="flex justify-between items-center">
+                  <h6
+                    class="text-[#030303] poppins md:text-4xl text-2xl font-bold capitalize text-left">
+                    UI/UX-Graphic <br class="md:block hidden"/>
+                    Branding
+                  </h6>
+                </div>
+<br/>
+                <div>
+                  <p
+                    class="poppins text-black md:text-lg text-base font-normal leading-normal md:leading-10"
+                  >
+                  Ever wondered why your brand isn't making the impact you
+                  envisioned? If your visuals lack that unforgettable
+                  touch, we've got you covered. In our Branding, Graphic
+                  Designing, UI/UX services, we weave creative branding,
+                  stunning graphics, and intuitive design to craft visuals
+                  that not only set but define your brand in the market.
+                  Our designs seamlessly merge aesthetics with
+                  functionality, ensuring a compelling and unforgettable
+                  brand identity and unique feel to your brand or product.
+                  </p>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="border-color-2 shadow-main">
+              <div
+                class="md:px-6 px-3 py-12 flex flex-col  h-[600px] md:h-auto   gradient-border">
+                <div class="flex justify-between items-center">
+                  <h6
+                    class="text-[#030303] poppins md:text-4xl text-2xl font-bold capitalize text-left">
+                    Influencer <br class="md:block hidden"/>
+                    Management
+                  </h6>
+                </div>
+<br/>
+                <div>
+                  <p
+                    class="poppins text-black md:text-lg text-base font-normal leading-normal md:leading-10"
+                  >
+                  Specializing in connecting brands with influencers, we
+                  amplify your reach and boost awareness. Our team
+                  identifies influencers aligned with your brand,
+                  facilitating impactful collaborations across diverse
+                  platforms. Create genuine connections with your target
+                  audience through strategic influencer partnerships that
+                  resonate, harnessing the power of authentic voices to
+                  enhance brand credibility and visibility. We authentically connect with your audience!
+                  </p>
+                </div>
+              
+              </div>
+            </div>
           </div>
         </div>
+      
+        <div class="swiper-pagination"></div>
+      </div>
 
-        <form data-aos="fade-up" class="md:col-span-12 pt-10" action="./form.php" method="post" accept-charset="UTF-8">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 gbook ">
-            <div class="flex items-center gbook">
-              <h2
-                class="text-black subheading text-xs lg:text-4xl font-light text-nowrap gbook"
-              >
-                My name is
-              </h2>
-              <input
-                class="appearance-none bg-transparent border-b border-[#888] w-full text-textcolor ml-5 pb-1 pl-5 leading-tight focus:outline-none focus:bg-transparent capitalize subheading text-xs lg:text-lg font-normal"
-                type="text"
-                placeholder="Enter your name"
-                aria-label="Full name"
-                id="fullname"
-                name="fullname"
-              />
-            </div>
-            <div class="flex items-center gbook">
-              <h2
-                class="text-black subheading text-xs lg:text-4xl font-light capitalize text-nowrap"
-              >
-                From
-              </h2>
-              <input
-                class="appearance-none bg-transparent border-b border-[#888] w-full text-textcolor ml-5 pb-1 pl-5 leading-tight focus:outline-none focus:bg-transparent capitalize subheading lg:text-lg text-xs font-normal"
-                type="text"
-                placeholder="Company website or name"
-                aria-label="Full name"
-                id="company"
-                name="company"
-              />
-            </div>
-          </div>
-          <div class="grid grid-cols-1 md:pt-20 pt-5 gbook">
-            <div class="flex md:items-center md:flex-row flex-col">
-              <h2
-                class="text-black subheading lg:text-4xl text-xs font-light text-nowrap"
-              >
-                I’d like to discuss project
-              </h2>
-              <input
-                class="appearance-none bg-transparent border-b border-[#888] w-full text-textcolor md:ml-5 ml-0 pb-1 pl-5 sm:text-center leading-tight focus:outline-none focus:bg-transparent capitalize subheading lg:text-lg text-xs font-normal text-center md:text-left"
-                type="text"
-                placeholder="Describe your project (idea)"
-                aria-label="Full name"
-                id="project"
-                name="project"
-              />
-            </div>
-          </div>
-          <div
-            class="grid grid-cols-1 sm:grid-cols-12 sm:gap-6 md:pt-20 pt-5 gbook"
+</section>
+  <!-- =========================WE ARE EXPERT AT SECTION END HERE==================== -->
+
+
+
+  <!-- =========================MEET OUR TEAM SECTION START HERE==================== -->
+  <section class="mt-20 p-[5%]" >
+      <div class=" " data-aos="fade-up">
+        <div class="flex">
+          <h2
+            class="gbook hero-glow capitalize 2xl:text-[127px] xl:text-[100px] text-[52px] pl-9"
           >
-            <div
-              class="col-span-12 md:col-span-9 flex md:flex-row flex-col md:items-center"
-            >
-              <h2
-                class="text-black gbook lg:text-4xl text-xs font-light  text-nowrap"
-              >
-                You can reach me at
-              </h2>
-              <input
-                class="appearance-none bg-transparent  border-b border-[#888] w-full text-textcolor md:ml-5 ml-0 pb-1 pl-5 leading-tight focus:outline-none focus:bg-transparent capitalize subheading lg:text-lg text-xs font-normal text-center md:text-left"
-                type="email"
-                placeholder="youremail@gmail.com"
-                aria-label="Full name"
-                id="email"
-                name="email"
-              />
-            </div>
+           &#8618; Meet the team
+          </h2>
+        </div>
+      </div>
+      <ul role="list">
+        <li class="member" data-aos="fade-up">
+          <a class="member-link">
+            <h2 class="member-name subheading">Alex</h2>
+            <p class="member-role subheading">CEO & Co-Founder</p>
+            <img class="member-photo" src="./assets/img/Alex.png" alt="" />
+          </a>
+        </li>
 
-            <div
-              class="col-span-12 md:col-span-3 flex md:flex-row flex-col md:items-center md:pt-0 lg:pt-0 pt-5"
+        <li class="member" data-aos="fade-up">
+          <a class="member-link">
+            <h2 class="member-name subheading">Rosse</h2>
+            <p class="member-role subheading">COO & Co-Founder</p>
+            <img class="member-photo" src="./assets/img/Rosse.png" alt="" />
+          </a>
+        </li>
+
+        <li class="member" data-aos="fade-up">
+          <a class="member-link">
+            <h2 class="member-name subheading">Emmet</h2>
+            <p class="member-role subheading">Revenue Growth Manager</p>
+            <img class="member-photo" src="./assets/img/Emmet.png" alt="" />
+          </a>
+        </li>
+
+        <li class="member" data-aos="fade-up">
+          <a class="member-link">
+            <h2 class="member-name subheading">Elias</h2>
+            <p class="member-role subheading">Head of Creatives</p>
+            <img class="member-photo" src="./assets/img/Elias.png" alt="" />
+          </a>
+        </li>
+      </ul>
+</section>
+  <!-- =========================MEET OUR TEAM SECTION END HERE==================== -->
+
+
+
+   <!-- =========================OUR RECENT PROJECT SECTION START HERE==================== -->
+   <section class="mt-20 p-[5%]" id="portfolio">
+    <div class="md:flex-row flex-col items-center flex gap-20">
+      <div class="basis-full md:basis-1/4 mt-[60px]">
+        
+        <h2
+          data-aos="fade-up"
+          class="gbook hero-glow capitalize font-light 2xl:text-[127px] xl:text-[100px] md:text-[52px] text-[28px]"
+        >
+          &#8618; Our Recent projects
+        </h2>
+      </div>
+      <div class="basis-full md:basis-3/4 w-full" data-aos="fade-up">
+        <div class="md:flex-row flex-col flex gap-6">
+          <div
+            class="basis-full md:basis-1/2 rounded-[80px] border border-1 md:p-[5%] p-[10%] bg-color-card1"
+          >
+            <a href="https://www.unfauxgettable.co.uk/" target="_blank">
+             
+              <div class="justify-center flex">
+                <img src="./assets/img/project1.svg" alt="" class="" />
+              </div>
+              <div class="justify-end flex">
+                <img src="./assets/img/arrow-up.png" alt="" class="" />
+              </div>
+            </a>
+          </div>
+          <div
+            class="basis-full md:basis-1/2 rounded-[80px] border border-1 md:p-[5%] p-[10%] bg-color-card2"
+          >
+            <a href="https://davenportm2m.com/" target="_blank">
+             
+              <div class="justify-center flex">
+                <img src="./assets/img/project2.svg" alt="" class="" />
+              </div>
+              <div class="justify-end flex">
+                <img src="./assets/img/arrow-up.png" alt="" class="" />
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="mt-5">
+          <div
+            class="rounded-[80px] border border-1 md:p-[5%] p-[10%] bg-color-card3"
+          >
+            <a href="https://mowellens.com/" target="_blank">
+            
+              <div class="justify-center flex my-5">
+                <img src="./assets/img/project3.webp" alt="" class="" />
+              </div>
+              <div class="justify-end flex">
+                <img src="./assets/img/arrow-up.png" alt="" class="" />
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+<!-- =========================OUR RECENT PROJECT SECTION END HERE==================== -->
+
+
+
+<!-- =========================CUSTOMER REVIEW SECTION START HERE==================== -->
+<section class="mt-20 p-[5%]">
+    <div
+    class="flex justify-between md:flex-row flex-col-reverse items-center"
+    data-aos="fade-up">
+    <div class="flex">
+    
+      <h2
+        class="gbook hero-glow capitalize font-light 2xl:text-[127px] xl:text-[100px] text-[32px] pl-9"
+      >
+        &#8618; Customer <br />reviews about <br />our work<br />
+      </h2>
+    </div>
+    <div>
+
+      <div class="fancy flex justify-center items-center md:items-start">
+        <i style="--clr: #00ff0a"></i>
+        <i style="--clr: #ff0057"></i>
+        <i style="--clr: #fffd44"></i>
+        <img
+          class="rotate"
+          src="./assets/img/hero-2.png"
+          alt="logo-img"
+        />
+      </div>
+  
+    </div>
+  </div>
+<!-- Swiper -->
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide p-[5%] ">
+     <div class="shadow-main rounded-[80px] p-[5%]">
+      <div class=" justify-center text-center items-center">
+        
+    <div class="flex justify-center items-center" >
+      <img
+      data-aos="fade-up"
+      src="./assets/img/axah.jpg"
+      alt=""
+      class="w-32 rounded-full"
+    />
+    </div>
+           
+        
+          <h3
+            data-aos="fade-up"
+            class="text-black poppins text-2xl font-bold capitalize"
+          >
+            Axah
+          </h3>
+          <h6
+            data-aos="fade-up"
+            class=" text-sm font-normal capitalize text-black"
+          >
+            CEO
+          </h6>
+          <h6
+            data-aos="fade-up"
+            class="text-[#030303] poppins font-normal text-sm md:text-xl md:leading-10 leading-normal pt-5 md:px-10 px-5"
+          >
+            I've been teaming up with Alex since he kicked off his
+            freelance journey back in 2021. I can't help but
+            appreciate the fantastic work he's done in boosting
+            our website's visibility and keeping our SEO results
+            top-notch on the first page. What really makes our
+            collaboration shine is Alex's reliability – he's
+            always there with quick responses and a knack for
+            setting clear expectations. I genuinely recommend Alex
+            and his company, Digital Shaping, to anyone on the
+            lookout for a great collaboration.
+          </h6>
+        
+      </div>
+    </div>
+    </div>
+
+
+
+    <div class="swiper-slide p-[5%] ">
+      <div class="shadow-main rounded-[80px] p-[5%]">
+       <div class=" justify-center text-center items-center">
+         
+     <div class="flex justify-center items-center" >
+       <img
+       data-aos="fade-up"
+       src="./assets/img/dan.jpg"
+       alt=""
+       class="w-32 rounded-full"
+     />
+     </div>
+            
+         
+           <h3
+             data-aos="fade-up"
+             class="text-black poppins text-2xl font-bold capitalize"
+           >
+             dan
+           </h3>
+           <h6
+             data-aos="fade-up"
+             class=" text-sm font-normal capitalize text-black"
+           >
+             CEO
+           </h6>
+           <h6
+             data-aos="fade-up"
+             class="text-[#030303] poppins font-normal text-sm md:text-xl md:leading-10 leading-normal pt-5 md:px-10 px-5"
+           >
+           Digital Shaping has done an excellent job with our
+           ecommerce store and the annual maintenance service.
+           They are just a message away whenever we need them,
+           and the team conducts regular checkups. From branding
+           to launching, they took care of everything for us.
+           Overall, we are highly satisfied with the service.
+           </h6>
+         
+       </div>
+     </div>
+     </div>
+
+
+     <div class="swiper-slide p-[5%] ">
+      <div class="shadow-main rounded-[80px] p-[5%]">
+       <div class=" justify-center text-center items-center">
+         
+     <div class="flex justify-center items-center" >
+       <img
+       data-aos="fade-up"
+       src="./assets/img/gabriela.jpg"
+       alt=""
+       class="w-32 rounded-full"
+     />
+     </div>
+            
+         
+           <h3
+             data-aos="fade-up"
+             class="text-black poppins text-2xl font-bold capitalize"
+           >
+           gabriela
+           </h3>
+           <h6
+             data-aos="fade-up"
+             class=" text-sm font-normal capitalize text-black"
+           >
+             CEO
+           </h6>
+           <h6
+             data-aos="fade-up"
+             class="text-[#030303] poppins font-normal text-sm md:text-xl md:leading-10 leading-normal pt-5 md:px-10 px-5"
+           >
+           I was about to dive into starting my business and got
+          all tangled up thinking about how to handle the online
+          stuff. So, I hit up the Digital Shaping crew for a
+          free chat. Gotta say, their advice was spot-on and
+          cleared up my head. Ready to roll with them now
+          they're taking care of everything from the ground up,
+          so I can just chill and focus on running the show
+          instead of stressing about marketing.
+           </h6>
+         
+       </div>
+     </div>
+     </div>
+  </div>
+  <div class="swiper-button-next bg-gray-200 rounded-full"></div>
+  <div class="swiper-button-prev bg-gray-200 rounded-full"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+</section>
+<!-- =========================CUSTOMER REVIEW SECTION END HERE==================== -->
+<!-- =========================CONTACT US  SECTION START HERE==================== -->
+ <section class="mt-20 p-[5%]" id="contact">
+ 
+    <div class="md:p-[5%] p-[7%] border-color shadow-main">
+      <div class="flex justify-between md:flex-row flex-col-reverse items-center">
+        <h2
+          class="gbook hero-glow capitalize font-light md:leading-[81px] leading-normal md:text-7xl text-4xl md:pt-0 pt-5 text-center md:text-left"
+        >
+          Hello
+          <br />
+          Digital Shaping
+        </h2>
+
+
+
+
+        
+
+        <div
+          class="justify-center  rotate">
+        
+          <div class="fancy">
+            <i style="--clr: #00ff0a"></i>
+            <i style="--clr: #ff0057"></i>
+            <i style="--clr: #fffd44"></i>
+            <img
+              class="rotate"
+              src="./assets/img/hero-2.png"
+              alt="logo-img"
+            />
+          </div> 
+        </div>
+      </div>
+
+      <form data-aos="fade-up" class="md:col-span-12 pt-10" action="./form.php" method="post" accept-charset="UTF-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 gbook ">
+          <div class="flex items-center gbook">
+            <h2
+              class="text-black subheading text-xs lg:text-4xl font-light text-nowrap gbook"
             >
-              <h2
-                class="text-black subheading lg:text-4xl text-xs font-light capitalize text-nowrap"
-              >
-                or
-              </h2>
-              <input
-                class="appearance-none bg-transparent border-b border-[#888] w-full text-textcolor md:ml-5 ml-0 pb-1 pl-5 leading-tight focus:outline-none focus:bg-transparent capitalize subheading lg:text-lg text-xs font-normal text-center md:text-left"
-                type="text"
-                placeholder="Other option"
-                aria-label="Full name"
-                id="email2"
-                name="email2"
-              />
-            </div>
+              My name is
+            </h2>
+            <input
+              class="appearance-none bg-transparent border-b border-[#888] w-full text-textcolor ml-5 pb-1 pl-5 leading-tight focus:outline-none focus:bg-transparent capitalize subheading text-xs lg:text-lg font-normal"
+              type="text"
+              placeholder="Enter your name"
+              aria-label="Full name"
+              id="fullname"
+              name="fullname"
+            />
+          </div>
+          <div class="flex items-center gbook">
+            <h2
+              class="text-black subheading text-xs lg:text-4xl font-light capitalize text-nowrap"
+            >
+              From
+            </h2>
+            <input
+              class="appearance-none bg-transparent border-b border-[#888] w-full text-textcolor ml-5 pb-1 pl-5 leading-tight focus:outline-none focus:bg-transparent capitalize subheading lg:text-lg text-xs font-normal"
+              type="text"
+              placeholder="Company website or name"
+              aria-label="Full name"
+              id="company"
+              name="company"
+            />
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:pt-20 pt-5 gbook">
+          <div class="flex md:items-center md:flex-row flex-col">
+            <h2
+              class="text-black subheading lg:text-4xl text-xs font-light text-nowrap"
+            >
+              I’d like to discuss project
+            </h2>
+            <input
+              class="appearance-none bg-transparent border-b border-[#888] w-full text-textcolor md:ml-5 ml-0 pb-1 pl-5 sm:text-center leading-tight focus:outline-none focus:bg-transparent capitalize subheading lg:text-lg text-xs font-normal text-center md:text-left"
+              type="text"
+              placeholder="Describe your project (idea)"
+              aria-label="Full name"
+              id="project"
+              name="project"
+            />
+          </div>
+        </div>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-12 sm:gap-6 md:pt-20 pt-5 gbook"
+        >
+          <div
+            class="col-span-12 md:col-span-9 flex md:flex-row flex-col md:items-center"
+          >
+            <h2
+              class="text-black gbook lg:text-4xl text-xs font-light  text-nowrap"
+            >
+              You can reach me at
+            </h2>
+            <input
+              class="appearance-none bg-transparent  border-b border-[#888] w-full text-textcolor md:ml-5 ml-0 pb-1 pl-5 leading-tight focus:outline-none focus:bg-transparent capitalize subheading lg:text-lg text-xs font-normal text-center md:text-left"
+              type="email"
+              placeholder="youremail@gmail.com"
+              aria-label="Full name"
+              id="email"
+              name="email"
+            />
           </div>
 
           <div
-            class="flex justify-between w-full px-3 md:pt-20 pt-5 md:flex-row flex-col ">
-            <button
-              id="submit"
-                name="submit"
-              class="md:mt-0 mt-5 border border-[#888] border-1 rounded-lg glow popins text-[#000000] lg:text-lg text-xs capitalize font-semibold text-textcolor px-[70px] py-3"
-            >
-              Send
-            </button>
-          </div>
-        </form>
-      </div>
-   
-   </section>
-  <!-- =========================CONTACT US  SECTION END HERE==================== -->
-  <!-- =========================FOOTER  SECTION START HERE==================== -->
-      <div
-        class="flex justify-between px-[5%] md:py-[2%] py-[5%] items-center md:flex-row flex-col md:mt-20 mt-10"
-      >
-        <div class="div">
-          <ul class="text-[#888] lg:text-base text-sm font-light flex gap-8">
-            <li class="text-[#888] lg:text-lg text-sm font-light">
-              Hello@digitalshaping.com
-            </li>
-          
-          </ul>
-        </div>
-        <div class="md:mt-0 mt-3">
-          <div class="flex items-center">
-            <img src="./assets/img/logo1.png" alt="" />
+            class="col-span-12 md:col-span-3 flex md:flex-row flex-col md:items-center md:pt-0 lg:pt-0 pt-5"
+          >
             <h2
-              class="text-[#030303] poppins font-medium lg:text-xl text-sm ml-3"
+              class="text-black subheading lg:text-4xl text-xs font-light capitalize text-nowrap"
             >
-              Digital<br />Shaping
+              or
             </h2>
+            <input
+              class="appearance-none bg-transparent border-b border-[#888] w-full text-textcolor md:ml-5 ml-0 pb-1 pl-5 leading-tight focus:outline-none focus:bg-transparent capitalize subheading lg:text-lg text-xs font-normal text-center md:text-left"
+              type="text"
+              placeholder="Other option"
+              aria-label="Full name"
+              id="email2"
+              name="email2"
+            />
           </div>
         </div>
-        <div class="md:mt-0 mt-3">
-          <p class="poppins text-[#888] lg:text-base text-sm font-light">
-            © 2024 Copyright by DigitalShaping
-          </p>
+
+        <div
+          class="flex justify-between w-full px-3 md:pt-20 pt-5 md:flex-row flex-col ">
+          <button
+            id="submit"
+              name="submit"
+            class="md:mt-0 mt-5 border border-[#888] border-1 rounded-lg glow popins text-[#000000] lg:text-lg text-xs capitalize font-semibold text-textcolor px-[70px] py-3"
+          >
+            Send
+          </button>
+        </div>
+      </form>
+    </div>
+ 
+ </section>
+<!-- =========================CONTACT US  SECTION END HERE==================== -->
+<!-- =========================FOOTER  SECTION START HERE==================== -->
+    <div
+      class="flex justify-between px-[5%] md:py-[2%] py-[5%] items-center md:flex-row flex-col md:mt-20 mt-10"
+    >
+      <div class="div">
+        <ul class="text-[#888] lg:text-base text-sm font-light flex gap-8">
+          <li class="text-[#888] lg:text-lg text-sm font-light">
+            Hello@digitalshaping.com
+          </li>
+        
+        </ul>
+      </div>
+      <div class="md:mt-0 mt-3">
+        <div class="flex items-center">
+          <img src="./assets/img/logo1.png" alt="" />
+          <h2
+            class="text-[#030303] poppins font-medium lg:text-xl text-sm ml-3"
+          >
+            Digital<br />Shaping
+          </h2>
         </div>
       </div>
-  <!-- =========================FOOTER  SECTION END HERE==================== -->
+      <div class="md:mt-0 mt-3">
+        <p class="poppins text-[#888] lg:text-base text-sm font-light">
+          © 2024 Copyright by DigitalShaping
+        </p>
+      </div>
+    </div>
+<!-- =========================FOOTER  SECTION END HERE==================== -->
+
+</div>
 
 
+
+  
+
+<script src="./loader.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();
