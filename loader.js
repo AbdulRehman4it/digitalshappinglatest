@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const steps = [
-        { title: "This is a phrase loading..." },
-        { title: "Used to address users in a conversational way..." },
-        { title: "While actions are being processed..." },
-        { title: "During a long waiting time..." },
-        { title: "Until loading is done!" }
+        { title: "Need more clients and a lead-magnet website?" },
+        { title: "Want organic traffic that converts?" },
+        { title: "Imagine those visitors becoming loyal customers." },
+        { title: "Picture your business standing out online." },
+        { title: "Ready for the 1st page? Let’s go!" }
     ];
 
     const phraseSectionWrapper = document.getElementById('phrase-section-wrapper');
